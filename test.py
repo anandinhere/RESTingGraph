@@ -30,6 +30,7 @@ def hello():
 @app.route('/user/<username>', methods=['GET'])
 def profile(username):
     print username
+    return username
 
 #Variable Rules
 @app.route('/user/<username>')
@@ -58,6 +59,22 @@ def upload_file():
         print f
         f.save('.' + secure_filename(f.filename))
         return 'upload success'
+
+
+#FlaskRestful
+from flask import request
+from flask_restful import Resource, Api
+
+
+api = Api(app)
+class HelloWorld(Resource):
+    def get(self):
+        print(type(request.headers['Authorization']))
+        auth = request.authorization
+        print(auth)
+        return {'hello': 'world'}
+
+api.add_resource(HelloWorld, '/restful')
 
 if __name__ == '__main__':
 
