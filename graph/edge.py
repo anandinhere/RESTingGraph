@@ -1,8 +1,8 @@
 
-class Node:
+class Edge:
     """A simple Graph Edge class"""
 
-    def __init__(self):
+    def __init__(self,fromNodeKey,toNodeKey,weight):
         self._fromNodeKey = None
         self._toNodeKey = None
         self._weight = None

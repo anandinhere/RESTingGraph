@@ -1,4 +1,5 @@
-
+from node import Node
+from edge import Edge
 
 class Graph:
     """A simple Graph class"""
@@ -47,4 +48,25 @@ class Graph:
     @adjacencyNodeListsDict.setter
     def adjacencyNodeListsDict(self, val):
         _adjacencyNodeListsDict = val
+
+    #Instance Methods
+    def addNode(self,node):
+        if node.key not in self.nodeDict:
+            self.nodeDict[node.key] = node
+            self.adjacencyNodeListsDict[node.key] = []
+        else:
+            return
+
+    def addEdge(self,from_key,to_key,edge_weight):
+        if from_key not in self.nodeDict:
+            self.addNode(from_key)
+
+        if to_key not in self.nodeDict:
+            self.addNode(to_key)
+
+        self.adjacencyNodeListsDict[from_key].append(Node(to_key))
+        self.edgeList.append(Edge(from_key,to_key,edge_weight))
+
+
+
 

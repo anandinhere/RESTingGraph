@@ -3,7 +3,7 @@
 class Node:
     """A simple Graph Node class"""
 
-    def __init__(self):
+    def __init__(self,key):
         self._isVisited = None
         self._key = None
         self._inRecurseStack = None
