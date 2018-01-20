@@ -7,7 +7,9 @@ class Graph:
         self._graphID = None
         self._nodeDict = {}
         self._adjacencyNodeListsDict = {}
+        self._edgeList = []
 
+    #Getters
     @property
     def graphName(self):
         return self._graphName
@@ -23,6 +25,12 @@ class Graph:
     @property
     def adjacencyNodeListsDict(self):
         return self._adjacencyNodeListsDict
+
+    @property
+    def edgeList(self):
+        return self._edgeList
+
+    #Setters
 
     @graphName.setter
     def graphName(self,val):
