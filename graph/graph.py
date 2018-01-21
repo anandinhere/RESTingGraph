@@ -64,9 +64,11 @@ class Graph:
         if to_key not in self.nodeDict:
             self.addNode(to_key)
 
-        self.adjacencyNodeListsDict[from_key].append(Node(to_key))
+        self.adjacencyNodeListsDict[from_key].append(Node(key=to_key,weight=edge_weight))
         self.edgeList.append(Edge(from_key,to_key,edge_weight))
 
-
+    def printEdges(self):
+        for edge in self.edgeList:
+            print edge._fromNodeKey, edge._toNodeKey, edge.weight
 
 
