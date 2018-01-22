@@ -1,4 +1,6 @@
 
+
+
 class Edge:
     """A simple Graph Edge class"""
 
@@ -33,3 +35,4 @@ class Edge:
     @weight.setter
     def weight(self,val):
         _weight = val
+

@@ -1,5 +1,6 @@
-from node import Node
-from edge import Edge
+
+from graph.edge import Edge
+from graph.node import Node
 
 class Graph:
     """A simple Graph class"""
@@ -32,7 +33,6 @@ class Graph:
         return self._edgeList
 
     #Setters
-
     @graphName.setter
     def graphName(self,val):
         _graphName = val
@@ -59,16 +59,16 @@ class Graph:
 
     def addEdge(self,from_key,to_key,edge_weight):
         if from_key not in self.nodeDict:
-            self.addNode(from_key)
+            self.addNode(Node(from_key))
 
         if to_key not in self.nodeDict:
-            self.addNode(to_key)
+            self.addNode(Node(to_key))
 
-        self.adjacencyNodeListsDict[from_key].append(Node(key=to_key,weight=edge_weight))
+        self.adjacencyNodeListsDict[from_key].append((to_key,edge_weight))
         self.edgeList.append(Edge(from_key,to_key,edge_weight))
 
     def printEdges(self):
         for edge in self.edgeList:
-            print edge._fromNodeKey, edge._toNodeKey, edge.weight
+            print(edge._fromNodeKey, edge._toNodeKey, edge.weight)
 
 

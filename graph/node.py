@@ -37,7 +37,6 @@ class Node:
 
 
     #Setters
-
     @isVisited.setter
     def isVisited(self,val):
         _isVisited = val

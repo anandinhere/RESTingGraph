@@ -23,13 +23,13 @@ def hello():
     auth = request.authorization
     print(auth)
     #print request.environ
-    print request.base_url
+    print(request.base_url)
     return "Whatsup World!"
 
 #http://flask.pocoo.org/docs/0.12/quickstart/
 @app.route('/user/<username>', methods=['GET'])
 def profile(username):
-    print username
+    print(username)
     return username
 
 #Variable Rules
@@ -56,7 +56,7 @@ from werkzeug.utils import secure_filename
 def upload_file():
     if request.method == 'POST':
         f = request.files['file']
-        print f
+        print(f)
         f.save('.' + secure_filename(f.filename))
         return 'upload success'
 
