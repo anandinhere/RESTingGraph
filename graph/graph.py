@@ -1,6 +1,8 @@
 
 from graph.edge import Edge
 from graph.node import Node
+import json
+import os
 
 class Graph:
     """A simple Graph class"""
@@ -70,5 +72,11 @@ class Graph:
     def printEdges(self):
         for edge in self.edgeList:
             print(edge._fromNodeKey, edge._toNodeKey, edge.weight)
+
+
+    def saveGraph(self,graphJson, graphName):
+        JSON_FILES_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'graphFileDB')
+        with open(os.path.join(JSON_FILES_PATH, 'graphName'), 'w') as outfile:
+            json.dump(graphJson, outfile, indent=4)
 
 
