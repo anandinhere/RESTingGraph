@@ -22,6 +22,7 @@ class ThreadTest(threading.Thread):
         self._readGraph = readGraph
 
         def run(self):
+
             self._updateGraphEvent.wait()
             threadQueue.put(self)
             time.sleep(100)
